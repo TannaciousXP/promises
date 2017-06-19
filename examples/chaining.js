@@ -10,6 +10,7 @@ var addNewUserToDatabaseAsync = function(user) {
   return db.findUserInDatabaseAsync(user)
     .then(function(existingUser) {
       if (existingUser) {
+        console.log('existingUser, ', existingUser);
         throw new Error('User already exists!'); // Head straight to `catch`. Do not pass Go, do not collect $200
       } else {
         return user; // Return a syncronous value
